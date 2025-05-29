@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<script>
+			if (typeof Promise !== "function")
+				document.write('<script src="./public/JS/promise.min.js"><\/script>');
+		</script>
+
+		<!-- Підключення скрипта з обгорткою для бібліотеки "ІІТ Користувач ЦСК Підпис (JavaScript)" -->
+		<script src='./js/euscp.js'></script>
+
+		<!-- Підключення основного скрипта сторінки тестування -->
+		<script src='./js/main.js'></script>
+
+	</head>
+<body>
+	<h1>Зчитування даних з ключа</h1>
+
+	<div>
+		<p>Оберіть тип носія ос. ключа</p>
+		<input type="radio" id="pkTypeFile" name="pkType" checked>
+		<label for="pkTypeFile">Файловий носій</label>
+
+		<input type="radio" id="pkTypeKeyMedia" name="pkType">
+		<label for="pkTypeKeyMedia">Захищений носій</label>
+
+		<input type="radio" id="pkTypeKSP" name="pkType">
+		<label for="pkTypeKSP">Носій у складі сервісу</label>
+	</div>
+	
+	<br>
+
+	
+	<div id="pkFileBlock">
+		<label>Файл з ос. ключем:</label>
+		<input id="pkFile" type="file"></input>
+		<br>
+		<label>Пароль:</label>
+		<br>
+		<input id="pkFilePassword" type="password" value="Alisa20I8"></input>
+	</div>
+		
+	<div id="pkKeyMediaBlock" style="display:none">
+		<label>Носій ос. ключа:</label>
+		<select id="pkKeyMediaSelect">
+		</select>
+		<br>
+		<label>Пароль:</label>
+		<br>
+		<input id="pkKeyMediaPassword" type="password"></input>
+	</div>
+
+	<div id="pkKSPBlock" style="display:none">
+		<label>Тип сервісу підпису:</label>
+		<select id="pkKSPSelect">
+		</select>
+		<div id="pkKSPUserIdBlock">
+			<br>
+			<label>Ідентифікатор користувача:</label>
+			<br>
+			<input id="pkKSPUserId" value="fd1b7ca3-8766-4bbd-9960-5e3f8baacd86"></input>
+		</div>
+		<br>		
+		<div id="pkKSPQRBlock" style="display:none">
+			<br>
+			<label id="pkKSPQRImageLabel"></label>
+			<br>
+			<div id="pkKSPQRImageBlock"></div>
+		</div>
+	</div>
+
+	<br>
+	<br>
+
+	<button id='read-button' onClick="readCertificate()">Зчитати сертифікат</button>
+	<br>
+	<br>
+	<div>EDRPOU: <span id="EDRPOU"></span>	</div>
+	<br
+	<div>DRFO: <span id="DRFO"></span>	</div>
+
+
+</body>
+
+</html>
